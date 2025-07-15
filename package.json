@@ -1,37 +1,43 @@
 {
-  "name": "pizza-delivery-system-app-server",
+  "name": "pizza-delivery-system-app-mern",
   "version": "1.0.0",
-  "description": "Backend for Pizza Delivery System.",
-  "main": "index.js",
+  "description": "A Full-Stack Web Application that simulates a Dynamic Pizza Delivery System.",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index --prefix server",
+    "server": "nodemon server/index --prefix server",
+    "client": "npm run dev --prefix client",
+    "build": "cd client && npm run build",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install": "cd client && npm install && cd .. && cd server && npm install && cd ..",
+    "data:import": "node server/seeder",
+    "data:destroy": "node server/seeder -d"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/itxSaaad/pizza-delivery-system-app-mern-OIBSIP.git"
+    "url": ""
   },
-  "author": "Muhammad Saad",
+  "keywords": [
+    "nodejs",
+    "mongodb",
+    "reactjs",
+    "expressjs",
+    "mern-stack",
+    "pizza-delivery-system",
+    "internship-task",
+    "oasis-internship",
+    "oibsip"
+  ],
+  "author": "Shivam Kashyap",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/itxSaaad/pizza-delivery-system-app-mern-OIBSIP/issues"
+    "url": ""
   },
   "homepage": "https://github.com/itxSaaad/pizza-delivery-system-app-mern-OIBSIP#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
   "dependencies": {
-    "@getbrevo/brevo": "^1.0.1",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.20.2",
-    "colors": "^1.4.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "email-validator": "^2.0.4",
-    "express": "^4.18.2",
-    "express-async-handler": "^1.2.0",
-    "jsonwebtoken": "^9.0.1",
-    "mongoose": "^7.4.3",
-    "morgan": "^1.10.0",
-    "nodemailer": "^6.9.4",
-    "razorpay": "^2.9.2"
+    "eslint": "^8.47.0",
+    "nodemon": "^3.0.1"
   }
 }
